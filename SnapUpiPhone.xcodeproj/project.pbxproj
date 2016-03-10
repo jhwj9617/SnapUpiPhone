@@ -1,0 +1,522 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E3CA80BA1C9156AD00272242 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CA80B91C9156AD00272242 /* main.m */; };
+		E3CA80BD1C9156AD00272242 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CA80BC1C9156AD00272242 /* AppDelegate.m */; };
+		E3CA80C01C9156AD00272242 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CA80BF1C9156AD00272242 /* ViewController.m */; };
+		E3CA80C31C9156AD00272242 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3CA80C11C9156AD00272242 /* Main.storyboard */; };
+		E3CA80C51C9156AD00272242 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3CA80C41C9156AD00272242 /* Assets.xcassets */; };
+		E3CA80C81C9156AD00272242 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3CA80C61C9156AD00272242 /* LaunchScreen.storyboard */; };
+		E3CA80D31C9156AD00272242 /* SnapUpiPhoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CA80D21C9156AD00272242 /* SnapUpiPhoneTests.m */; };
+		E3CA80DE1C9156AD00272242 /* SnapUpiPhoneUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CA80DD1C9156AD00272242 /* SnapUpiPhoneUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E3CA80CF1C9156AD00272242 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E3CA80AD1C9156AD00272242 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E3CA80B41C9156AD00272242;
+			remoteInfo = SnapUpiPhone;
+		};
+		E3CA80DA1C9156AD00272242 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E3CA80AD1C9156AD00272242 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E3CA80B41C9156AD00272242;
+			remoteInfo = SnapUpiPhone;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E3CA80B51C9156AD00272242 /* SnapUpiPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapUpiPhone.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3CA80B91C9156AD00272242 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E3CA80BB1C9156AD00272242 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E3CA80BC1C9156AD00272242 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E3CA80BE1C9156AD00272242 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		E3CA80BF1C9156AD00272242 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E3CA80C21C9156AD00272242 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E3CA80C41C9156AD00272242 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E3CA80C71C9156AD00272242 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E3CA80C91C9156AD00272242 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E3CA80CE1C9156AD00272242 /* SnapUpiPhoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnapUpiPhoneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3CA80D21C9156AD00272242 /* SnapUpiPhoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SnapUpiPhoneTests.m; sourceTree = "<group>"; };
+		E3CA80D41C9156AD00272242 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E3CA80D91C9156AD00272242 /* SnapUpiPhoneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnapUpiPhoneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3CA80DD1C9156AD00272242 /* SnapUpiPhoneUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SnapUpiPhoneUITests.m; sourceTree = "<group>"; };
+		E3CA80DF1C9156AD00272242 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E3CA80B21C9156AD00272242 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3CA80CB1C9156AD00272242 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3CA80D61C9156AD00272242 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E3CA80AC1C9156AD00272242 = {
+			isa = PBXGroup;
+			children = (
+				E3CA80B71C9156AD00272242 /* SnapUpiPhone */,
+				E3CA80D11C9156AD00272242 /* SnapUpiPhoneTests */,
+				E3CA80DC1C9156AD00272242 /* SnapUpiPhoneUITests */,
+				E3CA80B61C9156AD00272242 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E3CA80B61C9156AD00272242 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E3CA80B51C9156AD00272242 /* SnapUpiPhone.app */,
+				E3CA80CE1C9156AD00272242 /* SnapUpiPhoneTests.xctest */,
+				E3CA80D91C9156AD00272242 /* SnapUpiPhoneUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E3CA80B71C9156AD00272242 /* SnapUpiPhone */ = {
+			isa = PBXGroup;
+			children = (
+				E3CA80BB1C9156AD00272242 /* AppDelegate.h */,
+				E3CA80BC1C9156AD00272242 /* AppDelegate.m */,
+				E3CA80BE1C9156AD00272242 /* ViewController.h */,
+				E3CA80BF1C9156AD00272242 /* ViewController.m */,
+				E3CA80C11C9156AD00272242 /* Main.storyboard */,
+				E3CA80C41C9156AD00272242 /* Assets.xcassets */,
+				E3CA80C61C9156AD00272242 /* LaunchScreen.storyboard */,
+				E3CA80C91C9156AD00272242 /* Info.plist */,
+				E3CA80B81C9156AD00272242 /* Supporting Files */,
+			);
+			path = SnapUpiPhone;
+			sourceTree = "<group>";
+		};
+		E3CA80B81C9156AD00272242 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E3CA80B91C9156AD00272242 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E3CA80D11C9156AD00272242 /* SnapUpiPhoneTests */ = {
+			isa = PBXGroup;
+			children = (
+				E3CA80D21C9156AD00272242 /* SnapUpiPhoneTests.m */,
+				E3CA80D41C9156AD00272242 /* Info.plist */,
+			);
+			path = SnapUpiPhoneTests;
+			sourceTree = "<group>";
+		};
+		E3CA80DC1C9156AD00272242 /* SnapUpiPhoneUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E3CA80DD1C9156AD00272242 /* SnapUpiPhoneUITests.m */,
+				E3CA80DF1C9156AD00272242 /* Info.plist */,
+			);
+			path = SnapUpiPhoneUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E3CA80B41C9156AD00272242 /* SnapUpiPhone */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E3CA80E21C9156AD00272242 /* Build configuration list for PBXNativeTarget "SnapUpiPhone" */;
+			buildPhases = (
+				E3CA80B11C9156AD00272242 /* Sources */,
+				E3CA80B21C9156AD00272242 /* Frameworks */,
+				E3CA80B31C9156AD00272242 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SnapUpiPhone;
+			productName = SnapUpiPhone;
+			productReference = E3CA80B51C9156AD00272242 /* SnapUpiPhone.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E3CA80CD1C9156AD00272242 /* SnapUpiPhoneTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E3CA80E51C9156AD00272242 /* Build configuration list for PBXNativeTarget "SnapUpiPhoneTests" */;
+			buildPhases = (
+				E3CA80CA1C9156AD00272242 /* Sources */,
+				E3CA80CB1C9156AD00272242 /* Frameworks */,
+				E3CA80CC1C9156AD00272242 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E3CA80D01C9156AD00272242 /* PBXTargetDependency */,
+			);
+			name = SnapUpiPhoneTests;
+			productName = SnapUpiPhoneTests;
+			productReference = E3CA80CE1C9156AD00272242 /* SnapUpiPhoneTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E3CA80D81C9156AD00272242 /* SnapUpiPhoneUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E3CA80E81C9156AD00272242 /* Build configuration list for PBXNativeTarget "SnapUpiPhoneUITests" */;
+			buildPhases = (
+				E3CA80D51C9156AD00272242 /* Sources */,
+				E3CA80D61C9156AD00272242 /* Frameworks */,
+				E3CA80D71C9156AD00272242 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E3CA80DB1C9156AD00272242 /* PBXTargetDependency */,
+			);
+			name = SnapUpiPhoneUITests;
+			productName = SnapUpiPhoneUITests;
+			productReference = E3CA80D91C9156AD00272242 /* SnapUpiPhoneUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E3CA80AD1C9156AD00272242 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Cryptic Android";
+				TargetAttributes = {
+					E3CA80B41C9156AD00272242 = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 7DA5R2X9JC;
+					};
+					E3CA80CD1C9156AD00272242 = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 7DA5R2X9JC;
+						TestTargetID = E3CA80B41C9156AD00272242;
+					};
+					E3CA80D81C9156AD00272242 = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 7DA5R2X9JC;
+						TestTargetID = E3CA80B41C9156AD00272242;
+					};
+				};
+			};
+			buildConfigurationList = E3CA80B01C9156AD00272242 /* Build configuration list for PBXProject "SnapUpiPhone" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E3CA80AC1C9156AD00272242;
+			productRefGroup = E3CA80B61C9156AD00272242 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E3CA80B41C9156AD00272242 /* SnapUpiPhone */,
+				E3CA80CD1C9156AD00272242 /* SnapUpiPhoneTests */,
+				E3CA80D81C9156AD00272242 /* SnapUpiPhoneUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E3CA80B31C9156AD00272242 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3CA80C81C9156AD00272242 /* LaunchScreen.storyboard in Resources */,
+				E3CA80C51C9156AD00272242 /* Assets.xcassets in Resources */,
+				E3CA80C31C9156AD00272242 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3CA80CC1C9156AD00272242 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3CA80D71C9156AD00272242 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E3CA80B11C9156AD00272242 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3CA80C01C9156AD00272242 /* ViewController.m in Sources */,
+				E3CA80BD1C9156AD00272242 /* AppDelegate.m in Sources */,
+				E3CA80BA1C9156AD00272242 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3CA80CA1C9156AD00272242 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3CA80D31C9156AD00272242 /* SnapUpiPhoneTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3CA80D51C9156AD00272242 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3CA80DE1C9156AD00272242 /* SnapUpiPhoneUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E3CA80D01C9156AD00272242 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E3CA80B41C9156AD00272242 /* SnapUpiPhone */;
+			targetProxy = E3CA80CF1C9156AD00272242 /* PBXContainerItemProxy */;
+		};
+		E3CA80DB1C9156AD00272242 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E3CA80B41C9156AD00272242 /* SnapUpiPhone */;
+			targetProxy = E3CA80DA1C9156AD00272242 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E3CA80C11C9156AD00272242 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E3CA80C21C9156AD00272242 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E3CA80C61C9156AD00272242 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E3CA80C71C9156AD00272242 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E3CA80E01C9156AD00272242 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E3CA80E11C9156AD00272242 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E3CA80E31C9156AD00272242 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SnapUpiPhone/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.CrypticAndroid.SnapUpiPhone;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E3CA80E41C9156AD00272242 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SnapUpiPhone/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.CrypticAndroid.SnapUpiPhone;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E3CA80E61C9156AD00272242 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SnapUpiPhoneTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.CrypticAndroid.SnapUpiPhoneTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SnapUpiPhone.app/SnapUpiPhone";
+			};
+			name = Debug;
+		};
+		E3CA80E71C9156AD00272242 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SnapUpiPhoneTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.CrypticAndroid.SnapUpiPhoneTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SnapUpiPhone.app/SnapUpiPhone";
+			};
+			name = Release;
+		};
+		E3CA80E91C9156AD00272242 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SnapUpiPhoneUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.CrypticAndroid.SnapUpiPhoneUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SnapUpiPhone;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		E3CA80EA1C9156AD00272242 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SnapUpiPhoneUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.CrypticAndroid.SnapUpiPhoneUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SnapUpiPhone;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E3CA80B01C9156AD00272242 /* Build configuration list for PBXProject "SnapUpiPhone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E3CA80E01C9156AD00272242 /* Debug */,
+				E3CA80E11C9156AD00272242 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E3CA80E21C9156AD00272242 /* Build configuration list for PBXNativeTarget "SnapUpiPhone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E3CA80E31C9156AD00272242 /* Debug */,
+				E3CA80E41C9156AD00272242 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E3CA80E51C9156AD00272242 /* Build configuration list for PBXNativeTarget "SnapUpiPhoneTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E3CA80E61C9156AD00272242 /* Debug */,
+				E3CA80E71C9156AD00272242 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E3CA80E81C9156AD00272242 /* Build configuration list for PBXNativeTarget "SnapUpiPhoneUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E3CA80E91C9156AD00272242 /* Debug */,
+				E3CA80EA1C9156AD00272242 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E3CA80AD1C9156AD00272242 /* Project object */;
+}
