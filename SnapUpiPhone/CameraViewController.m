@@ -21,6 +21,7 @@ bool isCameraFullView = false;
 
 - (void) viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"Upload";
     [self initializeCameraSwipeGestures];
     
     [[self.captureButton layer] setBorderColor:[UIColor colorWithWhite:1.0f alpha:1.0f].CGColor];
@@ -30,6 +31,13 @@ bool isCameraFullView = false;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (self.capturedImageFrame.hidden == false) {
+        [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    } else {
+        [[self navigationController] setNavigationBarHidden:NO animated:YES];
+    }
+    
     [session startRunning];
 }
 
@@ -84,7 +92,6 @@ bool isCameraFullView = false;
     
     [stillImageOutput captureStillImageAsynchronouslyFromConnection:videoConnection completionHandler: ^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
         if (imageDataSampleBuffer != NULL) {
-            [self cameraSwipedUp];
             NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
             capturedImage = [UIImage imageWithData:imageData];
             float imageSize = imageData.length;
@@ -92,6 +99,7 @@ bool isCameraFullView = false;
             [self.capturedImageView setContentMode:UIViewContentModeScaleAspectFill];
             self.capturedImageView.image = capturedImage;
             self.capturedImageFrame.hidden = false;
+            [self cameraSwipedUp];
         }
     }];
     previewLayer.connection.enabled = NO;
@@ -102,8 +110,7 @@ bool isCameraFullView = false;
         isCameraFullView = true;
         [self.view layoutIfNeeded];
         self.selectAssetFrameHeightConstraint.constant = 0;
-        self.navigationBar.alpha = 0;
-        self.navigationBarTopConstraint.constant = -44;
+        [self.navigationController setNavigationBarHidden:YES animated:true];
         self.selectAssetButton.hidden = true;
         self.cameraBottomFrameBottomConstraint.constant -= self.tabBarController.tabBar.frame.size.height;
         //new tab bar height
@@ -124,8 +131,7 @@ bool isCameraFullView = false;
         isCameraFullView = false;
         [self.view layoutIfNeeded];
         self.selectAssetFrameHeightConstraint.constant = 100;
-        self.navigationBar.alpha = 1;
-        self.navigationBarTopConstraint.constant = 0;
+        [self.navigationController setNavigationBarHidden:NO animated:true];
         self.selectAssetButton.hidden = false;
         self.cameraBottomFrameBottomConstraint.constant += self.tabBarController.tabBar.frame.size.height;
         [UIView animateWithDuration:0.2 animations:^{
@@ -167,7 +173,10 @@ bool isCameraFullView = false;
 - (IBAction)capturedImageClose:(id)sender {
     self.capturedImageFrame.hidden = true;
     previewLayer.connection.enabled = YES;
+    NSLog([@(self.tabBarController.tabBar.frame.origin.y) stringValue]);
 }
+
+
 
 // Picker Controller Methods
 - (IBAction)cameraRollButtonClicked:(id)sender {

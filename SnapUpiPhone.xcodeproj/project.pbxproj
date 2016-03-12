@@ -19,6 +19,7 @@
 		E3CA80FA1C92520600272242 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CA80F91C92520600272242 /* CameraViewController.m */; };
 		E3CA80FD1C925FEF00272242 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CA80FC1C925FEF00272242 /* TabBarViewController.m */; };
 		E3CA80FF1C9290DF00272242 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CA80FE1C9290DF00272242 /* AVFoundation.framework */; };
+		E3CA81021C93B3D600272242 /* SelectBusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CA81011C93B3D600272242 /* SelectBusViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,8 @@
 		E3CA80FB1C925FEF00272242 /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
 		E3CA80FC1C925FEF00272242 /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
 		E3CA80FE1C9290DF00272242 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		E3CA81001C93B3D600272242 /* SelectBusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectBusViewController.h; sourceTree = "<group>"; };
+		E3CA81011C93B3D600272242 /* SelectBusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectBusViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +131,8 @@
 			children = (
 				E3CA80BB1C9156AD00272242 /* AppDelegate.h */,
 				E3CA80BC1C9156AD00272242 /* AppDelegate.m */,
+				E3CA81001C93B3D600272242 /* SelectBusViewController.h */,
+				E3CA81011C93B3D600272242 /* SelectBusViewController.m */,
 				E3CA80F81C92520600272242 /* CameraViewController.h */,
 				E3CA80F91C92520600272242 /* CameraViewController.m */,
 				E3CA80F51C91FDC400272242 /* BusesViewController.h */,
@@ -365,6 +370,7 @@
 				E3CA80FD1C925FEF00272242 /* TabBarViewController.m in Sources */,
 				E3CA80F71C91FDC400272242 /* BusesViewController.m in Sources */,
 				E3CA80FA1C92520600272242 /* CameraViewController.m in Sources */,
+				E3CA81021C93B3D600272242 /* SelectBusViewController.m in Sources */,
 				E3CA80BD1C9156AD00272242 /* AppDelegate.m in Sources */,
 				E3CA80BA1C9156AD00272242 /* main.m in Sources */,
 			);

@@ -21,16 +21,4 @@
     [super viewDidAppear:animated];
 }
 
-
-//- (BOOL) tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
-//    if (viewController == [tabBarController.viewControllers objectAtIndex:1] )
-//    {
-//        // Enable all but the last tab.
-//        [self performSegueWithIdentifier:@"TabBarToCamera" sender:self];
-//        return NO;
-//    }
-//    
-//    return YES;
-//}
-
 @end
