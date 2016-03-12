@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CTAssetsPickerController.h>
+@import Photos;
 
-@interface ViewController : UIViewController
-
+@interface BusesViewController : UIViewController <CTAssetsPickerControllerDelegate>
 
 @end
 

@@ -7,14 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BADB26BE3A1A475EE3282204 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88E7870AD5F99A43AE2C85A3 /* libPods.a */; };
 		E3CA80BA1C9156AD00272242 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CA80B91C9156AD00272242 /* main.m */; };
 		E3CA80BD1C9156AD00272242 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CA80BC1C9156AD00272242 /* AppDelegate.m */; };
-		E3CA80C01C9156AD00272242 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CA80BF1C9156AD00272242 /* ViewController.m */; };
 		E3CA80C31C9156AD00272242 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3CA80C11C9156AD00272242 /* Main.storyboard */; };
 		E3CA80C51C9156AD00272242 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3CA80C41C9156AD00272242 /* Assets.xcassets */; };
 		E3CA80C81C9156AD00272242 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3CA80C61C9156AD00272242 /* LaunchScreen.storyboard */; };
 		E3CA80D31C9156AD00272242 /* SnapUpiPhoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CA80D21C9156AD00272242 /* SnapUpiPhoneTests.m */; };
 		E3CA80DE1C9156AD00272242 /* SnapUpiPhoneUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CA80DD1C9156AD00272242 /* SnapUpiPhoneUITests.m */; };
+		E3CA80F71C91FDC400272242 /* BusesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CA80F61C91FDC400272242 /* BusesViewController.m */; };
+		E3CA80FA1C92520600272242 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CA80F91C92520600272242 /* CameraViewController.m */; };
+		E3CA80FD1C925FEF00272242 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CA80FC1C925FEF00272242 /* TabBarViewController.m */; };
+		E3CA80FF1C9290DF00272242 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CA80FE1C9290DF00272242 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,12 +39,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0708E83FBCEF106E7E72E5F3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		88E7870AD5F99A43AE2C85A3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BCF9D87179405322B0FD30F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E3CA80B51C9156AD00272242 /* SnapUpiPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapUpiPhone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3CA80B91C9156AD00272242 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E3CA80BB1C9156AD00272242 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E3CA80BC1C9156AD00272242 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E3CA80BE1C9156AD00272242 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E3CA80BF1C9156AD00272242 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E3CA80C21C9156AD00272242 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E3CA80C41C9156AD00272242 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E3CA80C71C9156AD00272242 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +56,13 @@
 		E3CA80D91C9156AD00272242 /* SnapUpiPhoneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnapUpiPhoneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3CA80DD1C9156AD00272242 /* SnapUpiPhoneUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SnapUpiPhoneUITests.m; sourceTree = "<group>"; };
 		E3CA80DF1C9156AD00272242 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E3CA80F51C91FDC400272242 /* BusesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusesViewController.h; sourceTree = "<group>"; };
+		E3CA80F61C91FDC400272242 /* BusesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusesViewController.m; sourceTree = "<group>"; };
+		E3CA80F81C92520600272242 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		E3CA80F91C92520600272242 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		E3CA80FB1C925FEF00272242 /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
+		E3CA80FC1C925FEF00272242 /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
+		E3CA80FE1C9290DF00272242 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3CA80FF1C9290DF00272242 /* AVFoundation.framework in Frameworks */,
+				BADB26BE3A1A475EE3282204 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +92,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		160F5532B8FF68B82B609ADB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9BCF9D87179405322B0FD30F /* Pods.debug.xcconfig */,
+				0708E83FBCEF106E7E72E5F3 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E3CA80AC1C9156AD00272242 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +108,8 @@
 				E3CA80D11C9156AD00272242 /* SnapUpiPhoneTests */,
 				E3CA80DC1C9156AD00272242 /* SnapUpiPhoneUITests */,
 				E3CA80B61C9156AD00272242 /* Products */,
+				160F5532B8FF68B82B609ADB /* Pods */,
+				E9A4B63B9FF28D00FA0438B3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,8 +128,12 @@
 			children = (
 				E3CA80BB1C9156AD00272242 /* AppDelegate.h */,
 				E3CA80BC1C9156AD00272242 /* AppDelegate.m */,
-				E3CA80BE1C9156AD00272242 /* ViewController.h */,
-				E3CA80BF1C9156AD00272242 /* ViewController.m */,
+				E3CA80F81C92520600272242 /* CameraViewController.h */,
+				E3CA80F91C92520600272242 /* CameraViewController.m */,
+				E3CA80F51C91FDC400272242 /* BusesViewController.h */,
+				E3CA80F61C91FDC400272242 /* BusesViewController.m */,
+				E3CA80FB1C925FEF00272242 /* TabBarViewController.h */,
+				E3CA80FC1C925FEF00272242 /* TabBarViewController.m */,
 				E3CA80C11C9156AD00272242 /* Main.storyboard */,
 				E3CA80C41C9156AD00272242 /* Assets.xcassets */,
 				E3CA80C61C9156AD00272242 /* LaunchScreen.storyboard */,
@@ -140,6 +169,15 @@
 			path = SnapUpiPhoneUITests;
 			sourceTree = "<group>";
 		};
+		E9A4B63B9FF28D00FA0438B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E3CA80FE1C9290DF00272242 /* AVFoundation.framework */,
+				88E7870AD5F99A43AE2C85A3 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +185,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E3CA80E21C9156AD00272242 /* Build configuration list for PBXNativeTarget "SnapUpiPhone" */;
 			buildPhases = (
+				C09ED5F93C54901193975ED9 /* Check Pods Manifest.lock */,
 				E3CA80B11C9156AD00272242 /* Sources */,
 				E3CA80B21C9156AD00272242 /* Frameworks */,
 				E3CA80B31C9156AD00272242 /* Resources */,
+				E75C899869A0736626BBD1BA /* Embed Pods Frameworks */,
+				4778DE06720EB248D0CC4946 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -268,12 +309,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4778DE06720EB248D0CC4946 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C09ED5F93C54901193975ED9 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E75C899869A0736626BBD1BA /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E3CA80B11C9156AD00272242 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3CA80C01C9156AD00272242 /* ViewController.m in Sources */,
+				E3CA80FD1C925FEF00272242 /* TabBarViewController.m in Sources */,
+				E3CA80F71C91FDC400272242 /* BusesViewController.m in Sources */,
+				E3CA80FA1C92520600272242 /* CameraViewController.m in Sources */,
 				E3CA80BD1C9156AD00272242 /* AppDelegate.m in Sources */,
 				E3CA80BA1C9156AD00272242 /* main.m in Sources */,
 			);
@@ -412,6 +503,7 @@
 		};
 		E3CA80E31C9156AD00272242 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BCF9D87179405322B0FD30F /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SnapUpiPhone/Info.plist;
@@ -423,6 +515,7 @@
 		};
 		E3CA80E41C9156AD00272242 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0708E83FBCEF106E7E72E5F3 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SnapUpiPhone/Info.plist;
@@ -499,6 +592,7 @@
 				E3CA80E41C9156AD00272242 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E3CA80E51C9156AD00272242 /* Build configuration list for PBXNativeTarget "SnapUpiPhoneTests" */ = {
 			isa = XCConfigurationList;
@@ -507,6 +601,7 @@
 				E3CA80E71C9156AD00272242 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E3CA80E81C9156AD00272242 /* Build configuration list for PBXNativeTarget "SnapUpiPhoneUITests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +610,7 @@
 				E3CA80EA1C9156AD00272242 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
