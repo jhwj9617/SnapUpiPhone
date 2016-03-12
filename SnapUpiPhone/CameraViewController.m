@@ -104,6 +104,7 @@ bool isCameraFullView = false;
         self.selectAssetFrameHeightConstraint.constant = 0;
         self.navigationBar.alpha = 0;
         self.navigationBarTopConstraint.constant = -44;
+        self.selectAssetButton.hidden = true;
         self.cameraBottomFrameBottomConstraint.constant -= self.tabBarController.tabBar.frame.size.height;
         //new tab bar height
         [UIView animateWithDuration:0.2 animations:^{
@@ -125,6 +126,7 @@ bool isCameraFullView = false;
         self.selectAssetFrameHeightConstraint.constant = 100;
         self.navigationBar.alpha = 1;
         self.navigationBarTopConstraint.constant = 0;
+        self.selectAssetButton.hidden = false;
         self.cameraBottomFrameBottomConstraint.constant += self.tabBarController.tabBar.frame.size.height;
         [UIView animateWithDuration:0.2 animations:^{
             [self.view layoutIfNeeded];

@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UIView *captureFrame;
 @property (strong, nonatomic) IBOutlet UIImageView *capturedImageView;
 @property (strong, nonatomic) IBOutlet UIView *selectAssetFrame;
+@property (strong, nonatomic) IBOutlet UIButton *selectAssetButton;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *selectAssetFrameHeightConstraint;
 @property (strong, nonatomic) IBOutlet UINavigationBar *navigationBar;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *navigationBarTopConstraint;
