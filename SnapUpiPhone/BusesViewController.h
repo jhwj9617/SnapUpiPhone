@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <CTAssetsPickerController.h>
-@import Photos;
+#import "BusOrigin.h"
+#import "BusOriginList.h"
 
-@interface BusesViewController : UIViewController <CTAssetsPickerControllerDelegate>
+@interface BusesViewController : UIViewController {
+    BusOriginList * busOriginList;
+}
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UILabel *centerLabel;
 
 @end
 

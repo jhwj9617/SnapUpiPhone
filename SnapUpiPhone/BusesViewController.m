@@ -10,61 +10,76 @@
 
 
 @interface BusesViewController () {
-    CTAssetsPickerController * pickerController;
-    PHAsset *selectedAsset;
-    __weak IBOutlet UILabel *centerLabel;
+    
 }
 
 @end
 
 @implementation BusesViewController
 
-- (IBAction)pickImage:(id)sender {
-    [self initializePicker];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    [self loadBusOriginList];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    [self renderTableView];
+    
+    if ([busOriginList.busOrigins lastObject]) {
+        BusOrigin *bo = [busOriginList.busOrigins lastObject];
+        self.centerLabel.text = bo.name;
+    }
+}
+
+- (void)renderTableView {
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    [self.tableView setRowHeight:70];
+    [self.tableView setDataSource:busOriginList];
+    [self.tableView reloadData];
+}
+
+- (IBAction)addBusDialog:(id)sender {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Add New Bus" message:@"Enter a bus name or use the default name." preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:nil]];
+    __block UITextField *inputName;
+    [alert addAction:[UIAlertAction actionWithTitle:@"Add" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        BusOrigin *newBusOrigin = [[BusOrigin alloc] init];
+        newBusOrigin.name = inputName.text;
+        newBusOrigin.code = @"1234abcd";
+        [busOriginList addBusOrigin:newBusOrigin];
+        [self saveBusOriginList];
+        [self.tableView reloadData];
+    }]];
+    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.text = [[UIDevice currentDevice] name];
+        inputName = textField;
+    }];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void) saveBusOriginList {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent: @"BusOriginList.txt"];
+    [NSKeyedArchiver archiveRootObject:busOriginList toFile:filePath];
+}
+
+- (void) loadBusOriginList {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent: @"BusOriginList.txt"];
+
+    if([[NSFileManager defaultManager] fileExistsAtPath:filePath] && [NSKeyedUnarchiver unarchiveObjectWithFile:filePath] != nil) {
+        busOriginList = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+    } else {
+        busOriginList = [[BusOriginList alloc] init];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-// CTAssetsPickerController
-
-- (void)initializePicker {
-    pickerController = [[CTAssetsPickerController alloc] init];
-    pickerController.delegate = self;
-    pickerController.defaultAssetCollection = PHAssetCollectionSubtypeSmartAlbumUserLibrary;
-    pickerController.showsEmptyAlbums = false;
-    PHFetchOptions *fetchOptions = [[PHFetchOptions alloc] init];
-    // only pictures for now
-    fetchOptions.predicate = [NSPredicate predicateWithFormat:@"mediaType = %d",PHAssetMediaTypeImage];
-    pickerController.assetsFetchOptions = fetchOptions;
-    [self presentViewController:pickerController animated:YES completion:NULL];
-}
-
-- (BOOL)assetsPickerController:(CTAssetsPickerController *)picker shouldSelectAsset:(PHAsset *)asset
-{
-    // Allow only 1 asset for now
-    if (picker.selectedAssets.count == 1) {
-        [picker deselectAsset:[picker.selectedAssets lastObject]];
-    }
-    return true;
-}
-
-- (void)assetsPickerController:(CTAssetsPickerController *)picker didFinishPickingAssets:(NSArray *)assets {
-    // assume 1 item selected
-    [self dismissViewControllerAnimated:YES completion:nil];
-    self->selectedAsset = [picker.selectedAssets lastObject];
-    centerLabel.text = [selectedAsset valueForKey:@"filename"];
 }
 
 

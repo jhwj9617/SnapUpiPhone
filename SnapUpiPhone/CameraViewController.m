@@ -8,6 +8,8 @@
 
 #import "CameraViewController.h"
 
+// CoreMotion to detect orientation changes
+
 @implementation CameraViewController
 AVCaptureSession *session;
 AVCaptureStillImageOutput *stillImageOutput;

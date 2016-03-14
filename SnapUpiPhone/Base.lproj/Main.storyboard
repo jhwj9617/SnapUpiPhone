@@ -16,7 +16,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="qlo-00-uCc" kind="relationship" relationship="viewControllers" id="8Wu-RA-nTi"/>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="jWM-DO-fMJ"/>
+                        <segue destination="sAJ-sx-XiN" kind="relationship" relationship="viewControllers" id="jWM-DO-fMJ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hvJ-0h-sVW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -54,44 +54,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u5c-NX-3Iv">
-                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
-                                <items>
-                                    <navigationItem title="SnapUp" id="Ngu-aZ-5MQ">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="TzE-dz-tyh">
-                                            <connections>
-                                                <action selector="pickImage:" destination="BYZ-38-t0r" id="jhq-hL-Jxr"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Herro World" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Q2-Dz-Gb1">
                                 <rect key="frame" x="114" y="274" width="93" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yIc-e8-XgO">
+                                <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="u5c-NX-3Iv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8R6-LN-UlX"/>
-                            <constraint firstAttribute="trailing" secondItem="u5c-NX-3Iv" secondAttribute="trailing" id="AdN-7Y-TRW"/>
-                            <constraint firstItem="u5c-NX-3Iv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="QEJ-9G-m4z"/>
+                            <constraint firstAttribute="trailing" secondItem="yIc-e8-XgO" secondAttribute="trailing" id="Hxq-hx-iA2"/>
+                            <constraint firstItem="yIc-e8-XgO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Lrj-Tc-yJS"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="yIc-e8-XgO" secondAttribute="bottom" id="YhI-Ge-Mbm"/>
                             <constraint firstItem="1Q2-Dz-Gb1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="icq-kD-nrT"/>
+                            <constraint firstItem="yIc-e8-XgO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="o9N-fG-gRu"/>
                             <constraint firstItem="1Q2-Dz-Gb1" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="oNp-Mf-JnI"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Buses" image="BadgeAllPhotos.png" id="ar3-uP-jZF"/>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" title="SnapUp" id="oU5-Oh-PEZ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="GyN-GR-H3P">
+                            <connections>
+                                <action selector="addBusDialog:" destination="BYZ-38-t0r" id="zHu-qp-KQn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="centerLabel" destination="1Q2-Dz-Gb1" id="HkH-BM-UBJ"/>
+                        <outlet property="centerLabel" destination="1Q2-Dz-Gb1" id="NU0-CK-nMx"/>
+                        <outlet property="tableView" destination="yIc-e8-XgO" id="2Qy-f5-aaM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="354" y="5"/>
+            <point key="canvasLocation" x="886" y="5"/>
         </scene>
         <!--CameraViewController-->
         <scene sceneID="vd8-ZC-2H7">
@@ -250,17 +250,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Bus" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mGo-Yy-QDH">
-                                <rect key="frame" x="119" y="274" width="82" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aAp-z6-Q13">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="mGo-Yy-QDH" firstAttribute="centerY" secondItem="Qag-ca-Bu8" secondAttribute="centerY" id="AbO-AG-qZ7"/>
-                            <constraint firstItem="mGo-Yy-QDH" firstAttribute="centerX" secondItem="Qag-ca-Bu8" secondAttribute="centerX" id="oDQ-pR-oZA"/>
+                            <constraint firstAttribute="bottom" secondItem="aAp-z6-Q13" secondAttribute="bottom" id="48m-t4-Ep0"/>
+                            <constraint firstItem="aAp-z6-Q13" firstAttribute="top" secondItem="NAU-4z-6PC" secondAttribute="bottom" id="JhQ-S2-Q2M"/>
+                            <constraint firstAttribute="trailing" secondItem="aAp-z6-Q13" secondAttribute="trailing" id="LLL-eO-s4b"/>
+                            <constraint firstItem="aAp-z6-Q13" firstAttribute="leading" secondItem="Qag-ca-Bu8" secondAttribute="leading" id="Ti6-bT-h1E"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Select Bus" id="bOi-Lt-91Q">
@@ -289,6 +288,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kwM-El-21J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="354" y="651"/>
+        </scene>
+        <!--Buses-->
+        <scene sceneID="EBv-cr-yaE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sAJ-sx-XiN" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Buses" image="BadgeAllPhotos.png" id="ar3-uP-jZF"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tti-Pa-RWi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="7Qe-yZ-HgG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CHq-Wq-SBD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="354" y="5"/>
         </scene>
     </scenes>
     <resources>
