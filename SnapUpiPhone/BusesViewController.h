@@ -15,6 +15,7 @@
     BusOriginList * busOriginList;
 }
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *addBusButton;
 
 @end
 

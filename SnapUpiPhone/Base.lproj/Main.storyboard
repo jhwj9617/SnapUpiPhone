@@ -58,6 +58,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="addBusButton" destination="GyN-GR-H3P" id="Mjn-fv-W1z"/>
                         <outlet property="tableView" destination="yIc-e8-XgO" id="2Qy-f5-aaM"/>
                         <segue destination="8Tc-RH-GgD" kind="push" identifier="BusesToBusOriginProperties" id="642-eI-8Sw"/>
                     </connections>

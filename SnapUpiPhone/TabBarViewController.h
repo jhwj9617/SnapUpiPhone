@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Reachability.h>
 #import "CameraViewController.h"
 
 @interface TabBarViewController : UITabBarController <UITabBarControllerDelegate,UITabBarDelegate>
+
 
 @end

@@ -2,12 +2,15 @@ PODS:
   - CTAssetsPickerController (3.3.1):
     - PureLayout (~> 3.0.0)
   - PureLayout (3.0.1)
+  - Reachability (3.2)
 
 DEPENDENCIES:
   - CTAssetsPickerController (~> 3.3.0)
+  - Reachability
 
 SPEC CHECKSUMS:
   CTAssetsPickerController: b1d1d50ab87cf6b8b13531de5f4530482e7e53ed
   PureLayout: f35f5384c9c4e4479df041dbe33ad7577b71ddfb
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
 
 COCOAPODS: 0.39.0

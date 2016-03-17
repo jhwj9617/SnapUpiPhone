@@ -32,7 +32,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    int tableViewTag = [tableView tag]; // Buses View = 0; Select Bus = 1;
+    NSInteger tableViewTag = [tableView tag]; // Buses View = 0; Select Bus = 1;
     BusOrigin *busOrigin = [self.busOrigins objectAtIndex:indexPath.row];
     UITableViewCell *cell = [[UITableViewCell alloc] init];
     
