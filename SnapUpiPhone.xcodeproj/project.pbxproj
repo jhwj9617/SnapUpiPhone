@@ -22,6 +22,7 @@
 		E3CA81021C93B3D600272242 /* SelectBusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CA81011C93B3D600272242 /* SelectBusViewController.m */; };
 		E3CA81051C9668E200272242 /* BusOrigin.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CA81041C9668E200272242 /* BusOrigin.m */; };
 		E3CA81081C966C4000272242 /* BusOriginList.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CA81071C966C4000272242 /* BusOriginList.m */; };
+		E3E17AF71C978B3F00765E0F /* BusOriginPropertiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E17AF61C978B3F00765E0F /* BusOriginPropertiesViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,8 @@
 		E3CA81041C9668E200272242 /* BusOrigin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusOrigin.m; sourceTree = "<group>"; };
 		E3CA81061C966C4000272242 /* BusOriginList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusOriginList.h; sourceTree = "<group>"; };
 		E3CA81071C966C4000272242 /* BusOriginList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusOriginList.m; sourceTree = "<group>"; };
+		E3E17AF51C978B3F00765E0F /* BusOriginPropertiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusOriginPropertiesViewController.h; sourceTree = "<group>"; };
+		E3E17AF61C978B3F00765E0F /* BusOriginPropertiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusOriginPropertiesViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +144,8 @@
 				E3CA81011C93B3D600272242 /* SelectBusViewController.m */,
 				E3CA80F81C92520600272242 /* CameraViewController.h */,
 				E3CA80F91C92520600272242 /* CameraViewController.m */,
+				E3E17AF51C978B3F00765E0F /* BusOriginPropertiesViewController.h */,
+				E3E17AF61C978B3F00765E0F /* BusOriginPropertiesViewController.m */,
 				E3CA80F51C91FDC400272242 /* BusesViewController.h */,
 				E3CA80F61C91FDC400272242 /* BusesViewController.m */,
 				E3CA80FB1C925FEF00272242 /* TabBarViewController.h */,
@@ -380,6 +385,7 @@
 				E3CA81081C966C4000272242 /* BusOriginList.m in Sources */,
 				E3CA80FD1C925FEF00272242 /* TabBarViewController.m in Sources */,
 				E3CA80F71C91FDC400272242 /* BusesViewController.m in Sources */,
+				E3E17AF71C978B3F00765E0F /* BusOriginPropertiesViewController.m in Sources */,
 				E3CA80FA1C92520600272242 /* CameraViewController.m in Sources */,
 				E3CA81021C93B3D600272242 /* SelectBusViewController.m in Sources */,
 				E3CA80BD1C9156AD00272242 /* AppDelegate.m in Sources */,

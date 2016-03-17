@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <VariablesViewState
    version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[BusOriginList tableView:cellForRowAtIndexPath:]:BusOriginList.m">
+      </ContextState>
+      <ContextState
+         contextName = "__30-[BusesViewController addBus:]_block_invoke:BusesViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[BusesViewController prepareForSegue:sender:]:BusesViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[BusesViewController addBus:]:BusesViewController.m">
+      </ContextState>
+   </ContextStates>
 </VariablesViewState>

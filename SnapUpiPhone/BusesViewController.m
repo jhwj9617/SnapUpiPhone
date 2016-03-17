@@ -17,6 +17,8 @@
 
 @implementation BusesViewController
 
+BusOrigin *selectedBusOrigin;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadBusOriginList];
@@ -25,14 +27,15 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self renderTableView];
+}
+
+- (void) viewWillAppear:(BOOL)animated {
     
-    if ([busOriginList.busOrigins lastObject]) {
-        BusOrigin *bo = [busOriginList.busOrigins lastObject];
-        self.centerLabel.text = bo.name;
-    }
 }
 
 - (void)renderTableView {
+    [self.tableView setDelegate:self];
+    self.tableView.contentInset = UIEdgeInsetsZero;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self.tableView setRowHeight:70];
     [self.tableView setDataSource:busOriginList];
@@ -40,22 +43,51 @@
 }
 
 - (IBAction)addBusDialog:(id)sender {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Add New Bus" message:@"Enter a bus name or use the default name." preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:nil]];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Add New Bus"
+                                                                   message:@"Enter a descriptive bus name.\n(e.g. iPhone to HomePC)"
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
     __block UITextField *inputName;
     [alert addAction:[UIAlertAction actionWithTitle:@"Add" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-        BusOrigin *newBusOrigin = [[BusOrigin alloc] init];
-        newBusOrigin.name = inputName.text;
-        newBusOrigin.code = @"1234abcd";
-        [busOriginList addBusOrigin:newBusOrigin];
-        [self saveBusOriginList];
-        [self.tableView reloadData];
+        [self addBus:inputName.text];
     }]];
     [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
         textField.text = [[UIDevice currentDevice] name];
         inputName = textField;
     }];
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void) addBus:(NSString*) busName {
+    NSString* encodedBusName = [busName stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
+    NSString *urlString = [@"http://snapup.apphb.com/Buses/Create?mobileId=1&name=" stringByAppendingString:encodedBusName];
+    NSLog(@"%@", urlString);
+    
+    __block NSDictionary *json;
+    NSURLSession *session = [NSURLSession sharedSession];
+    [[session dataTaskWithURL:[NSURL URLWithString:urlString]
+            completionHandler:^(NSData *data,
+                                NSURLResponse *response,
+                                NSError *error) {
+                NSString *strData = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+                NSLog(@"%@", strData);
+                if(data != nil) {
+                    json = [NSJSONSerialization JSONObjectWithData:data
+                                                           options:NSJSONReadingAllowFragments
+                                                             error:&error];
+                    
+                    if ([json objectForKey:@"statusCode"] && [[json objectForKey:@"statusCode"] isEqualToString:@"200"]) {
+                        BusOrigin *newBusOrigin = [[BusOrigin alloc] init];
+                        newBusOrigin.name = busName;
+                        newBusOrigin.code = [json objectForKey:@"code"];
+                        [busOriginList addBusOrigin:newBusOrigin];
+                        [self saveBusOriginList];
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [self.tableView reloadData];
+                        });
+                    }
+                }
+            }] resume];
 }
 
 - (void) saveBusOriginList {
@@ -77,10 +109,25 @@
     }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    selectedBusOrigin = [busOriginList.busOrigins objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:@"BusesToBusOriginProperties" sender:self];
 }
 
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"BusesToBusOriginProperties"]) {
+        BusOriginPropertiesViewController *busOriginPropertiesVC = [segue destinationViewController];
+        [busOriginPropertiesVC setBusOrigin:selectedBusOrigin];
+    }
+}
+
+- (IBAction)unwindFromModalViewController:(UIStoryboardSegue *)segue {
+    if ([[segue identifier] isEqualToString:@"BusOriginPropertiesToBuses"]) {
+        BusOriginPropertiesViewController *busOriginPropertiesVC = segue.sourceViewController;
+        if (busOriginPropertiesVC.didDelete) {
+            NSLog(@"OMG, iz deletit");
+        }
+    }
+}
 
 @end

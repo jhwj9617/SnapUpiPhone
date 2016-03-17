@@ -23,25 +23,6 @@
             </objects>
             <point key="canvasLocation" x="-93" y="309"/>
         </scene>
-        <!--DummyView-->
-        <scene sceneID="pnA-yO-M8n">
-            <objects>
-                <viewController title="DummyView" id="idv-qX-iyx" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ZyI-2h-S1d"/>
-                        <viewControllerLayoutGuide type="bottom" id="cQB-Da-cMX"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ecn-Q5-r0F">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Camera" id="y4X-2R-NhI"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fVf-Mz-gyh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-331" y="984"/>
-        </scene>
         <!--BusesViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -54,12 +35,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Herro World" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Q2-Dz-Gb1">
-                                <rect key="frame" x="114" y="274" width="93" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yIc-e8-XgO">
                                 <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -70,13 +45,11 @@
                             <constraint firstAttribute="trailing" secondItem="yIc-e8-XgO" secondAttribute="trailing" id="Hxq-hx-iA2"/>
                             <constraint firstItem="yIc-e8-XgO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Lrj-Tc-yJS"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="yIc-e8-XgO" secondAttribute="bottom" id="YhI-Ge-Mbm"/>
-                            <constraint firstItem="1Q2-Dz-Gb1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="icq-kD-nrT"/>
                             <constraint firstItem="yIc-e8-XgO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="o9N-fG-gRu"/>
-                            <constraint firstItem="1Q2-Dz-Gb1" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="oNp-Mf-JnI"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="SnapUp" id="oU5-Oh-PEZ">
+                    <navigationItem key="navigationItem" title="Buses" id="oU5-Oh-PEZ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="GyN-GR-H3P">
                             <connections>
                                 <action selector="addBusDialog:" destination="BYZ-38-t0r" id="zHu-qp-KQn"/>
@@ -85,13 +58,87 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="centerLabel" destination="1Q2-Dz-Gb1" id="NU0-CK-nMx"/>
                         <outlet property="tableView" destination="yIc-e8-XgO" id="2Qy-f5-aaM"/>
+                        <segue destination="8Tc-RH-GgD" kind="push" identifier="BusesToBusOriginProperties" id="642-eI-8Sw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="HWG-E6-luv" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="886" y="5"/>
+        </scene>
+        <!--BusOriginPropertiesViewController-->
+        <scene sceneID="nEI-Tz-CSf">
+            <objects>
+                <viewController title="BusOriginPropertiesViewController" id="8Tc-RH-GgD" customClass="BusOriginPropertiesViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="x2L-0f-jSA"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fya-PH-SRp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="o5V-V7-Qc3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCf-D5-uJR">
+                                <rect key="frame" x="20" y="84" width="41" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bus Name Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3EH-W4-aAH">
+                                <rect key="frame" x="20" y="105" width="135" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idV-zf-SlH">
+                                <rect key="frame" x="20" y="154" width="37" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bus Code Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JO9-Bs-o71">
+                                <rect key="frame" x="20" y="175" width="130" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jom-4w-eWZ">
+                                <rect key="frame" x="20" y="474" width="75" height="30"/>
+                                <state key="normal" title="Delete Bus">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteBusButtonPressed:" destination="8Tc-RH-GgD" eventType="touchUpInside" id="2AF-qe-BRi"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JO9-Bs-o71" firstAttribute="top" secondItem="idV-zf-SlH" secondAttribute="bottom" constant="3" id="6e1-CG-fIg"/>
+                            <constraint firstItem="GCf-D5-uJR" firstAttribute="leading" secondItem="o5V-V7-Qc3" secondAttribute="leading" constant="20" id="CCM-EB-X4W"/>
+                            <constraint firstItem="GCf-D5-uJR" firstAttribute="top" secondItem="x2L-0f-jSA" secondAttribute="bottom" constant="20" id="EPG-84-3Gq"/>
+                            <constraint firstItem="3EH-W4-aAH" firstAttribute="top" secondItem="GCf-D5-uJR" secondAttribute="bottom" constant="3" id="GNU-bU-2xx"/>
+                            <constraint firstItem="Fya-PH-SRp" firstAttribute="top" secondItem="Jom-4w-eWZ" secondAttribute="bottom" constant="20" id="Rf7-Ue-afy"/>
+                            <constraint firstItem="idV-zf-SlH" firstAttribute="leading" secondItem="o5V-V7-Qc3" secondAttribute="leading" constant="20" id="Vgk-nR-NzG"/>
+                            <constraint firstItem="idV-zf-SlH" firstAttribute="top" secondItem="3EH-W4-aAH" secondAttribute="bottom" constant="25" id="YYA-zP-ROX"/>
+                            <constraint firstItem="3EH-W4-aAH" firstAttribute="leading" secondItem="o5V-V7-Qc3" secondAttribute="leading" constant="20" id="p7D-kh-jdy"/>
+                            <constraint firstItem="Jom-4w-eWZ" firstAttribute="leading" secondItem="o5V-V7-Qc3" secondAttribute="leading" constant="20" id="wMb-yI-iQQ"/>
+                            <constraint firstItem="JO9-Bs-o71" firstAttribute="leading" secondItem="o5V-V7-Qc3" secondAttribute="leading" constant="20" id="zm8-9d-wTT"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Bus Properties" id="R3z-dH-gMK">
+                        <barButtonItem key="backBarButtonItem" title="Cancel" id="qow-oz-Ieb"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="busCodeText" destination="JO9-Bs-o71" id="4gP-id-LtF"/>
+                        <outlet property="busNameText" destination="3EH-W4-aAH" id="ILX-sG-tf7"/>
+                        <segue destination="HWG-E6-luv" kind="unwind" identifier="BusOriginPropertiesToBuses" unwindAction="unwindFromModalViewController:" id="jyr-5x-Igs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jYS-MK-0MY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1271" y="5"/>
         </scene>
         <!--CameraViewController-->
         <scene sceneID="vd8-ZC-2H7">
@@ -221,7 +268,7 @@
                             <constraint firstAttribute="trailing" secondItem="tW7-WW-6TD" secondAttribute="trailing" id="yp1-cm-Fq9"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Upload" id="anh-a7-Gzs"/>
+                    <navigationItem key="navigationItem" title="Camera" id="anh-a7-Gzs"/>
                     <connections>
                         <outlet property="cameraBottomFrame" destination="Chg-QF-Cfi" id="l0x-r5-U66"/>
                         <outlet property="cameraBottomFrameBottomConstraint" destination="xCT-jU-634" id="hQB-mD-Ocm"/>
@@ -250,23 +297,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aAp-z6-Q13">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                            </scrollView>
+                            <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1Qv-An-AM4">
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="aAp-z6-Q13" secondAttribute="bottom" id="48m-t4-Ep0"/>
-                            <constraint firstItem="aAp-z6-Q13" firstAttribute="top" secondItem="NAU-4z-6PC" secondAttribute="bottom" id="JhQ-S2-Q2M"/>
-                            <constraint firstAttribute="trailing" secondItem="aAp-z6-Q13" secondAttribute="trailing" id="LLL-eO-s4b"/>
-                            <constraint firstItem="aAp-z6-Q13" firstAttribute="leading" secondItem="Qag-ca-Bu8" secondAttribute="leading" id="Ti6-bT-h1E"/>
+                            <constraint firstItem="1Qv-An-AM4" firstAttribute="top" secondItem="NAU-4z-6PC" secondAttribute="bottom" id="6R5-C3-2Ei"/>
+                            <constraint firstItem="H9A-qa-dcz" firstAttribute="top" secondItem="1Qv-An-AM4" secondAttribute="bottom" id="Ewd-U9-sZR"/>
+                            <constraint firstItem="1Qv-An-AM4" firstAttribute="leading" secondItem="Qag-ca-Bu8" secondAttribute="leading" id="MUg-L6-850"/>
+                            <constraint firstAttribute="trailing" secondItem="1Qv-An-AM4" secondAttribute="trailing" id="wYa-bt-URM"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Select Bus" id="bOi-Lt-91Q">
                         <barButtonItem key="backBarButtonItem" title="Cancel" id="q0a-Jq-6fY"/>
+                        <barButtonItem key="rightBarButtonItem" title="Upload" id="HqM-uS-jvs">
+                            <connections>
+                                <action selector="uploadButtonPressed:" destination="YiF-Vi-qB6" id="Izi-qP-S6g"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="1Qv-An-AM4" id="LgN-JV-q0w"/>
+                        <outlet property="uploadButton" destination="HqM-uS-jvs" id="1NQ-vO-Kez"/>
+                        <segue destination="EzI-5U-kg8" kind="unwind" identifier="SelectBusToCamera" unwindAction="unwindFromModalViewController:" id="cet-Xg-Y4T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bgL-rx-CPC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="EzI-5U-kg8" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1271" y="651"/>
         </scene>
@@ -274,7 +333,7 @@
         <scene sceneID="zxC-2q-Xze">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qlo-00-uCc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Camera" image="BadgeVideo.png" id="QmH-8F-X2B"/>
+                    <tabBarItem key="tabBarItem" title="Camera" image="camera" id="QmH-8F-X2B"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="t0A-bu-vdq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -293,7 +352,7 @@
         <scene sceneID="EBv-cr-yaE">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sAJ-sx-XiN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Buses" image="BadgeAllPhotos.png" id="ar3-uP-jZF"/>
+                    <tabBarItem key="tabBarItem" title="Buses" image="bus2" id="ar3-uP-jZF"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tti-Pa-RWi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -310,8 +369,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BadgeAllPhotos.png" width="16" height="16"/>
-        <image name="BadgeVideo.png" width="16" height="16"/>
         <image name="DisclosureArrow.png" width="8" height="13"/>
+        <image name="bus2" width="26" height="26"/>
+        <image name="camera" width="24" height="24"/>
     </resources>
 </document>

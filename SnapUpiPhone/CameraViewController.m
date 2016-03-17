@@ -23,7 +23,6 @@ bool isCameraFullView = false;
 
 - (void) viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"Upload";
     [self initializeCameraSwipeGestures];
     
     [[self.captureButton layer] setBorderColor:[UIColor colorWithWhite:1.0f alpha:1.0f].CGColor];
@@ -34,6 +33,7 @@ bool isCameraFullView = false;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.tabBarController.tabBar setHidden:NO];
     if (self.capturedImageFrame.hidden == false) {
         [[self navigationController] setNavigationBarHidden:YES animated:YES];
     } else {
@@ -151,7 +151,7 @@ bool isCameraFullView = false;
     return UIStatusBarAnimationSlide;
 }
 
--(BOOL) prefersStatusBarHidden {
+-(BOOL) prefersStatusBarHidden { // override
     return isCameraFullView;
 }
 
@@ -167,8 +167,22 @@ bool isCameraFullView = false;
     [self.captureFrame addGestureRecognizer:swipeDown];
 }
 
-- (IBAction)cancelButtonClicked:(id)sender {
-    [self dismissViewControllerAnimated:TRUE completion:NULL];
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"CameraToSelectBus"]) {
+        SelectBusViewController *selectBusVC = [segue destinationViewController];
+        [selectBusVC setAssetToUpload:capturedImage];
+    }
+}
+
+- (IBAction)unwindFromModalViewController:(UIStoryboardSegue *)segue {
+    if ([[segue identifier] isEqualToString:@"SelectBusToCamera"]) {
+        SelectBusViewController *selectBusVC = segue.sourceViewController;
+        if (selectBusVC.didUpload) {
+            NSLog(@"OMG, iz uplodid");
+            [self capturedImageClose:self];
+            [self cameraSwipedDown];
+        }
+    }
 }
 
 // Captured Image Methods
@@ -177,8 +191,6 @@ bool isCameraFullView = false;
     previewLayer.connection.enabled = YES;
     NSLog([@(self.tabBarController.tabBar.frame.origin.y) stringValue]);
 }
-
-
 
 // Picker Controller Methods
 - (IBAction)cameraRollButtonClicked:(id)sender {

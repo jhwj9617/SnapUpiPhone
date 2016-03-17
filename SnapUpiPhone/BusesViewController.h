@@ -9,12 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "BusOrigin.h"
 #import "BusOriginList.h"
+#import "BusOriginPropertiesViewController.h"
 
-@interface BusesViewController : UIViewController {
+@interface BusesViewController : UIViewController <UITableViewDelegate> {
     BusOriginList * busOriginList;
 }
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) IBOutlet UILabel *centerLabel;
 
 @end
 
