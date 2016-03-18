@@ -23,5 +23,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *captureButton;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *cameraBottomFrameBottomConstraint;
 @property (strong, nonatomic) IBOutlet UIView *capturedImageFrame;
+@property (strong, nonatomic) IBOutlet UIButton *resizeButton;
+@property (strong, nonatomic) IBOutlet UIButton *switchCameraButton;
 
 @end

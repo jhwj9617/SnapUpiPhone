@@ -16,5 +16,6 @@
 @property NSMutableArray *busOrigins;
 
 - (void) addBusOrigin:(BusOrigin *) busOrigin;
+- (void) deleteBusOrigin:(BusOrigin *) busOrigin;
 
 @end

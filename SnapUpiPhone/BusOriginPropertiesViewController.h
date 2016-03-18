@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Reachability.h>
 #import "BusOrigin.h"
+#import "InterfaceUtilities.h"
 
 @interface BusOriginPropertiesViewController : UIViewController
 

@@ -7,15 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Reachability.h>
 #import "BusOrigin.h"
 #import "BusOriginList.h"
+#import "InterfaceUtilities.h"
 
 @interface SelectBusViewController : UIViewController <UITableViewDelegate> {
     BusOriginList * busOriginList;
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property UIImage *assetToUpload;
+@property NSData *assetDataToUpload;
+@property NSString *fileName;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *uploadButton;
 @property BOOL didUpload;
 

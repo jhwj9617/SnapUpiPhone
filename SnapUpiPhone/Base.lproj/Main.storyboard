@@ -13,6 +13,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.3529411764705882" green="0.29019607843137252" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="qlo-00-uCc" kind="relationship" relationship="viewControllers" id="8Wu-RA-nTi"/>
@@ -26,7 +31,7 @@
         <!--BusesViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="BusesViewController" id="BYZ-38-t0r" customClass="BusesViewController" sceneMemberID="viewController">
+                <viewController title="BusesViewController" automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="BusesViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -37,10 +42,10 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yIc-e8-XgO">
                                 <rect key="frame" x="0.0" y="64" width="320" height="460"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.94117647058823528" green="0.93725490196078431" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="yIc-e8-XgO" secondAttribute="trailing" id="Hxq-hx-iA2"/>
                             <constraint firstItem="yIc-e8-XgO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Lrj-Tc-yJS"/>
@@ -83,25 +88,24 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCf-D5-uJR">
                                 <rect key="frame" x="20" y="84" width="41" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.35294117650000001" green="0.2901960784" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bus Name Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3EH-W4-aAH">
                                 <rect key="frame" x="20" y="105" width="135" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idV-zf-SlH">
                                 <rect key="frame" x="20" y="154" width="37" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.35294117650000001" green="0.2901960784" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bus Code Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JO9-Bs-o71">
                                 <rect key="frame" x="20" y="175" width="130" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jom-4w-eWZ">
@@ -161,15 +165,15 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bec-Vn-QJ5">
                                 <rect key="frame" x="0.0" y="64" width="320" height="100"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZ3-dY-9Qf">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZ3-dY-9Qf">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
-                                        <state key="normal" title="Camera Roll"/>
+                                        <state key="normal" image="add_image"/>
                                         <connections>
                                             <action selector="cameraRollButtonClicked:" destination="1k6-tD-gTe" eventType="touchUpInside" id="Pg9-VM-9xY"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.3529411764705882" green="0.29019607843137252" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="KZ3-dY-9Qf" firstAttribute="leading" secondItem="bec-Vn-QJ5" secondAttribute="leading" id="8gS-K4-oSq"/>
@@ -182,6 +186,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Chg-QF-Cfi">
                                 <rect key="frame" x="0.0" y="422" width="320" height="87"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="skn-mf-XV2">
+                                        <rect key="frame" x="15" y="40" width="32" height="32"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="resize_up"/>
+                                        <connections>
+                                            <action selector="resizeButtonPressed:" destination="1k6-tD-gTe" eventType="touchUpInside" id="KYW-QB-2nq"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rrN-Kk-F9Q">
                                         <rect key="frame" x="120" y="4" width="80" height="80"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -199,11 +211,23 @@
                                             <action selector="takePhoto:" destination="1k6-tD-gTe" eventType="touchUpInside" id="QDT-QO-MS5"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ccj-EL-OsK">
+                                        <rect key="frame" x="268" y="40" width="32" height="32"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="switch_camera"/>
+                                        <connections>
+                                            <action selector="switchCameraButtonPressed:" destination="1k6-tD-gTe" eventType="touchUpInside" id="3Tc-qT-FFj"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="87" id="Eqf-eU-iWf"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ccj-EL-OsK" secondAttribute="bottom" constant="15" id="TwA-N6-GY4"/>
                                     <constraint firstItem="rrN-Kk-F9Q" firstAttribute="centerY" secondItem="Chg-QF-Cfi" secondAttribute="centerY" id="Umt-N5-8qT"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ccj-EL-OsK" secondAttribute="trailing" constant="20" id="W65-Ht-16h"/>
+                                    <constraint firstAttribute="bottom" secondItem="skn-mf-XV2" secondAttribute="bottom" constant="15" id="nnc-BM-ofu"/>
                                     <constraint firstItem="rrN-Kk-F9Q" firstAttribute="centerX" secondItem="Chg-QF-Cfi" secondAttribute="centerX" id="nnc-SP-R1q"/>
+                                    <constraint firstItem="skn-mf-XV2" firstAttribute="leading" secondItem="Chg-QF-Cfi" secondAttribute="leading" constant="15" id="qpr-vK-rZG"/>
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tW7-WW-6TD">
@@ -219,19 +243,17 @@
                                             <constraint firstAttribute="width" constant="30" id="XyP-HO-d8C"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <state key="normal" title="x"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="delete_sign"/>
                                         <connections>
-                                            <action selector="capturedImageClose:" destination="1k6-tD-gTe" eventType="touchUpInside" id="xOg-mS-NGw"/>
+                                            <action selector="capturedImageCloseButtonPressed:" destination="1k6-tD-gTe" eventType="touchUpInside" id="Mur-fg-ncz"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tpb-D8-I9e">
-                                        <rect key="frame" x="220" y="518" width="80" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="aSA-WP-ZX8"/>
-                                            <constraint firstAttribute="width" constant="80" id="h3H-6N-82Z"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <state key="normal" title="Okay" image="DisclosureArrow.png"/>
+                                        <rect key="frame" x="252" y="500" width="48" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="next"/>
                                         <connections>
                                             <segue destination="YiF-Vi-qB6" kind="push" identifier="CameraToSelectBus" id="4iV-uQ-jhU"/>
                                         </connections>
@@ -277,9 +299,11 @@
                         <outlet property="captureFrame" destination="a2r-Ih-r4U" id="hq5-It-vQh"/>
                         <outlet property="capturedImageFrame" destination="tW7-WW-6TD" id="tov-J1-dLs"/>
                         <outlet property="capturedImageView" destination="4uX-xq-l2A" id="FMT-Ug-w1r"/>
+                        <outlet property="resizeButton" destination="skn-mf-XV2" id="mR9-l5-Yfz"/>
                         <outlet property="selectAssetButton" destination="KZ3-dY-9Qf" id="iiH-sc-iMK"/>
                         <outlet property="selectAssetFrame" destination="bec-Vn-QJ5" id="yn5-oO-zer"/>
                         <outlet property="selectAssetFrameHeightConstraint" destination="e94-OS-ZKK" id="AUU-Aj-gN1"/>
+                        <outlet property="switchCameraButton" destination="Ccj-EL-OsK" id="w6Y-7c-hwf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k7v-Ze-zQI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -289,7 +313,7 @@
         <!--SelectBusViewController-->
         <scene sceneID="1Q1-QT-g7G">
             <objects>
-                <viewController title="SelectBusViewController" id="YiF-Vi-qB6" customClass="SelectBusViewController" sceneMemberID="viewController">
+                <viewController title="SelectBusViewController" automaticallyAdjustsScrollViewInsets="NO" id="YiF-Vi-qB6" customClass="SelectBusViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NAU-4z-6PC"/>
                         <viewControllerLayoutGuide type="bottom" id="H9A-qa-dcz"/>
@@ -300,7 +324,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1Qv-An-AM4">
                                 <rect key="frame" x="0.0" y="64" width="320" height="455"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.94117647058823528" green="0.93725490196078431" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -312,7 +336,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Select Bus" id="bOi-Lt-91Q">
-                        <barButtonItem key="backBarButtonItem" title="Cancel" id="q0a-Jq-6fY"/>
                         <barButtonItem key="rightBarButtonItem" title="Upload" id="HqM-uS-jvs">
                             <connections>
                                 <action selector="uploadButtonPressed:" destination="YiF-Vi-qB6" id="Izi-qP-S6g"/>
@@ -336,9 +359,14 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qlo-00-uCc" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Camera" image="camera" id="QmH-8F-X2B"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="t0A-bu-vdq">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="t0A-bu-vdq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.3529411764705882" green="0.29019607843137252" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -355,9 +383,14 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sAJ-sx-XiN" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Buses" image="bus2" id="ar3-uP-jZF"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tti-Pa-RWi">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="tti-Pa-RWi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.3529411764705882" green="0.29019607843137252" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -370,8 +403,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="DisclosureArrow.png" width="8" height="13"/>
+        <image name="add_image" width="64" height="64"/>
         <image name="bus2" width="26" height="26"/>
         <image name="camera" width="24" height="24"/>
+        <image name="delete_sign" width="32" height="32"/>
+        <image name="next" width="48" height="48"/>
+        <image name="resize_up" width="32" height="32"/>
+        <image name="switch_camera" width="32" height="32"/>
     </resources>
 </document>

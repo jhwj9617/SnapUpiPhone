@@ -23,6 +23,7 @@
 		E3CA81051C9668E200272242 /* BusOrigin.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CA81041C9668E200272242 /* BusOrigin.m */; };
 		E3CA81081C966C4000272242 /* BusOriginList.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CA81071C966C4000272242 /* BusOriginList.m */; };
 		E3E17AF71C978B3F00765E0F /* BusOriginPropertiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E17AF61C978B3F00765E0F /* BusOriginPropertiesViewController.m */; };
+		E3E17B021C9A726700765E0F /* InterfaceUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E17B011C9A726700765E0F /* InterfaceUtilities.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,9 @@
 		E3CA81071C966C4000272242 /* BusOriginList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusOriginList.m; sourceTree = "<group>"; };
 		E3E17AF51C978B3F00765E0F /* BusOriginPropertiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusOriginPropertiesViewController.h; sourceTree = "<group>"; };
 		E3E17AF61C978B3F00765E0F /* BusOriginPropertiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusOriginPropertiesViewController.m; sourceTree = "<group>"; };
+		E3E17B001C9A726700765E0F /* InterfaceUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterfaceUtilities.h; sourceTree = "<group>"; };
+		E3E17B011C9A726700765E0F /* InterfaceUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterfaceUtilities.m; sourceTree = "<group>"; };
+		E3E17B041C9B286C00765E0F /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +163,9 @@
 				E3CA81061C966C4000272242 /* BusOriginList.h */,
 				E3CA81071C966C4000272242 /* BusOriginList.m */,
 				E3CA80B81C9156AD00272242 /* Supporting Files */,
+				E3E17B001C9A726700765E0F /* InterfaceUtilities.h */,
+				E3E17B011C9A726700765E0F /* InterfaceUtilities.m */,
+				E3E17B041C9B286C00765E0F /* Constants.h */,
 			);
 			path = SnapUpiPhone;
 			sourceTree = "<group>";
@@ -382,6 +389,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3E17B021C9A726700765E0F /* InterfaceUtilities.m in Sources */,
 				E3CA81081C966C4000272242 /* BusOriginList.m in Sources */,
 				E3CA80FD1C925FEF00272242 /* TabBarViewController.m in Sources */,
 				E3CA80F71C91FDC400272242 /* BusesViewController.m in Sources */,

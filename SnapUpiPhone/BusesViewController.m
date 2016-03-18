@@ -16,16 +16,22 @@
 @end
 
 @implementation BusesViewController
-
+BusOriginList * busOriginList;
 BusOrigin *selectedBusOrigin;
+BOOL shouldDeleteSelectedBusOrigin;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadBusOriginList];
+    self.tableView.contentInset = UIEdgeInsetsZero;
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    if (shouldDeleteSelectedBusOrigin) {
+        [self deleteSelectedBusOrigin];
+    }
+    shouldDeleteSelectedBusOrigin = false;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -35,7 +41,6 @@ BusOrigin *selectedBusOrigin;
 
 - (void)renderTableView {
     [self.tableView setDelegate:self];
-    self.tableView.contentInset = UIEdgeInsetsZero;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self.tableView setRowHeight:70];
     [self.tableView setDataSource:busOriginList];
@@ -43,24 +48,34 @@ BusOrigin *selectedBusOrigin;
 }
 
 - (IBAction)addBusDialog:(id)sender {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Add New Bus"
-                                                                   message:@"Enter a descriptive bus name.\n(e.g. iPhone to HomePC)"
-                                                            preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
-    __block UITextField *inputName;
-    [alert addAction:[UIAlertAction actionWithTitle:@"Add" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-        [self addBus:inputName.text];
-    }]];
-    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-        textField.text = [[UIDevice currentDevice] name];
-        inputName = textField;
-    }];
-    [self presentViewController:alert animated:YES completion:nil];
+    Reachability *reachability = [Reachability reachabilityForInternetConnection];
+    NetworkStatus internetStatus = [reachability currentReachabilityStatus];
+    if (internetStatus != NotReachable) {
+        UIAlertController *addBusAlert = [UIAlertController alertControllerWithTitle:@"Add New Bus"
+                                                                       message:@"Enter a descriptive bus name.\n(e.g. iPhone to HomePC)"
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        [addBusAlert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+        __block UITextField *inputName;
+        [addBusAlert addAction:[UIAlertAction actionWithTitle:@"Add" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+            [self addBus:inputName.text];
+        }]];
+        [addBusAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+            textField.text = [[UIDevice currentDevice] name];
+            [textField becomeFirstResponder];
+            inputName = textField;
+        }];
+        [self presentViewController:addBusAlert animated:YES completion:nil];
+    }
+    else {
+        UIAlertController *noInternetAlert = [InterfaceUtilities createAlertDialogWithTitle:@"Adding New Bus Unavailable" Message:@"You need to be connected to your network or Wi-Fi to add a new bus."];
+        [self presentViewController:noInternetAlert animated:YES completion:nil];
+    }
 }
 
 - (void) addBus:(NSString*) busName {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     NSString* encodedBusName = [busName stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
-    NSString *urlString = [@"http://snapup.apphb.com/Buses/Create?mobileId=1&name=" stringByAppendingString:encodedBusName];
+    NSString *urlString = [NSString stringWithFormat:@"%@%@", @"http://snapup.apphb.com/Buses/Create?mobileId=1&name=", encodedBusName];
     NSLog(@"%@", urlString);
     
     __block NSDictionary *json;
@@ -87,6 +102,7 @@ BusOrigin *selectedBusOrigin;
                         });
                     }
                 }
+                [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
             }] resume];
 }
 
@@ -124,10 +140,13 @@ BusOrigin *selectedBusOrigin;
 - (IBAction)unwindFromModalViewController:(UIStoryboardSegue *)segue {
     if ([[segue identifier] isEqualToString:@"BusOriginPropertiesToBuses"]) {
         BusOriginPropertiesViewController *busOriginPropertiesVC = segue.sourceViewController;
-        if (busOriginPropertiesVC.didDelete) {
-            NSLog(@"OMG, iz deletit");
-        }
+        shouldDeleteSelectedBusOrigin = busOriginPropertiesVC.didDelete;
     }
+}
+
+- (void) deleteSelectedBusOrigin {
+    [busOriginList deleteBusOrigin:selectedBusOrigin];
+    [self saveBusOriginList];
 }
 
 @end

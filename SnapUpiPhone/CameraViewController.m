@@ -14,6 +14,8 @@
 AVCaptureSession *session;
 AVCaptureStillImageOutput *stillImageOutput;
 AVCaptureVideoPreviewLayer *previewLayer;
+NSData *capturedImageData;
+NSString *fileName;
 UIImage *capturedImage;
 CTAssetsPickerController * pickerController;
 PHAsset *selectedAsset;
@@ -24,7 +26,6 @@ bool isCameraFullView = false;
 - (void) viewDidLoad {
     [super viewDidLoad];
     [self initializeCameraSwipeGestures];
-    
     [[self.captureButton layer] setBorderColor:[UIColor colorWithWhite:1.0f alpha:1.0f].CGColor];
     [[self.captureButton layer] setBorderWidth:5.0f];
     [[self.captureButton layer] setBackgroundColor:[UIColor colorWithWhite:1.0f alpha:0.5f].CGColor];;
@@ -34,7 +35,7 @@ bool isCameraFullView = false;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.tabBarController.tabBar setHidden:NO];
-    if (self.capturedImageFrame.hidden == false) {
+    if (isCameraFullView) {
         [[self navigationController] setNavigationBarHidden:YES animated:YES];
     } else {
         [[self navigationController] setNavigationBarHidden:NO animated:YES];
@@ -94,10 +95,9 @@ bool isCameraFullView = false;
     
     [stillImageOutput captureStillImageAsynchronouslyFromConnection:videoConnection completionHandler: ^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
         if (imageDataSampleBuffer != NULL) {
-            NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
-            capturedImage = [UIImage imageWithData:imageData];
-            float imageSize = imageData.length;
-            NSLog(@"SIZE OF IMAGE: %f ", imageSize);
+            capturedImageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
+            fileName = [self generateTimeStampFileName];
+            capturedImage = [UIImage imageWithData:capturedImageData];
             [self.capturedImageView setContentMode:UIViewContentModeScaleAspectFill];
             self.capturedImageView.image = capturedImage;
             self.capturedImageFrame.hidden = false;
@@ -109,6 +109,8 @@ bool isCameraFullView = false;
 
 -(void)cameraSwipedUp {
     if (!isCameraFullView) {
+        UIImage *resizeDownImage = [UIImage imageNamed:@"resize_down.png"];
+        [self.resizeButton setImage:resizeDownImage forState:UIControlStateNormal];
         isCameraFullView = true;
         [self.view layoutIfNeeded];
         self.selectAssetFrameHeightConstraint.constant = 0;
@@ -130,6 +132,8 @@ bool isCameraFullView = false;
 
 -(void)cameraSwipedDown {
     if (isCameraFullView) {
+        UIImage *resizeUpImage = [UIImage imageNamed:@"resize_up.png"];
+        [self.resizeButton setImage:resizeUpImage forState:UIControlStateNormal];
         isCameraFullView = false;
         [self.view layoutIfNeeded];
         self.selectAssetFrameHeightConstraint.constant = 100;
@@ -167,10 +171,70 @@ bool isCameraFullView = false;
     [self.captureFrame addGestureRecognizer:swipeDown];
 }
 
+- (IBAction)resizeButtonPressed:(id)sender {
+    if (isCameraFullView) {
+        [self cameraSwipedDown];
+    } else {
+        [self cameraSwipedUp];
+    }
+}
+
+- (IBAction)switchCameraButtonPressed:(id)sender {
+    //Change camera source
+    if(session)
+    {
+        //Indicate that some changes will be made to the session
+        [session beginConfiguration];
+        
+        //Remove existing input
+        AVCaptureInput* currentCameraInput = [session.inputs objectAtIndex:0];
+        [session removeInput:currentCameraInput];
+        
+        //Get new input
+        AVCaptureDevice *newCamera = nil;
+        if(((AVCaptureDeviceInput*)currentCameraInput).device.position == AVCaptureDevicePositionBack)
+        {
+            newCamera = [self cameraWithPosition:AVCaptureDevicePositionFront];
+        }
+        else
+        {
+            newCamera = [self cameraWithPosition:AVCaptureDevicePositionBack];
+        }
+        
+        //Add input to session
+        NSError *err = nil;
+        AVCaptureDeviceInput *newVideoInput = [[AVCaptureDeviceInput alloc] initWithDevice:newCamera error:&err];
+        if(!newVideoInput || err)
+        {
+            NSLog(@"Error creating capture device input: %@", err.localizedDescription);
+        }
+        else
+        {
+            [session addInput:newVideoInput];
+        }
+        
+        //Commit all the configuration changes at once
+        [session commitConfiguration];
+    }
+}
+
+- (AVCaptureDevice *) cameraWithPosition:(AVCaptureDevicePosition) position {
+    NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
+    for (AVCaptureDevice *device in devices)
+    {
+        if ([device position] == position)
+        {
+            return device;
+        }
+    }
+    return nil;
+}
+
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"CameraToSelectBus"]) {
         SelectBusViewController *selectBusVC = [segue destinationViewController];
-        [selectBusVC setAssetToUpload:capturedImage];
+        [selectBusVC setAssetDataToUpload:capturedImageData];
+        [selectBusVC setFileName:fileName];
     }
 }
 
@@ -179,14 +243,26 @@ bool isCameraFullView = false;
         SelectBusViewController *selectBusVC = segue.sourceViewController;
         if (selectBusVC.didUpload) {
             NSLog(@"OMG, iz uplodid");
-            [self capturedImageClose:self];
-            [self cameraSwipedDown];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self capturedImageCloseButtonPressed:self];
+                [self cameraSwipedDown];
+            });
         }
     }
 }
 
+- (NSString *) generateTimeStampFileName {
+    NSCalendar *sysCalendar = [[NSCalendar alloc]initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    dateFormatter.calendar = sysCalendar;
+    [dateFormatter setTimeZone:[NSTimeZone systemTimeZone]];
+    [dateFormatter setDateFormat:@"mmddyyyyHHmmss"];
+    NSString *strDate = [dateFormatter stringFromDate:[NSDate date]];
+    return strDate;
+}
+
 // Captured Image Methods
-- (IBAction)capturedImageClose:(id)sender {
+- (IBAction)capturedImageCloseButtonPressed:(id)sender {
     self.capturedImageFrame.hidden = true;
     previewLayer.connection.enabled = YES;
     NSLog([@(self.tabBarController.tabBar.frame.origin.y) stringValue]);
@@ -220,16 +296,20 @@ bool isCameraFullView = false;
 
 -(void)assetsPickerControllerDidCancel:(CTAssetsPickerController *)picker
 {
-    NSLog(@"cancelled");
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)assetsPickerController:(CTAssetsPickerController *)picker didFinishPickingAssets:(NSArray *)assets {
     // assume 1 item selected
-    [self dismissViewControllerAnimated:YES completion:nil];
+    //[self dismissViewControllerAnimated:YES completion:nil];
     selectedAsset = [picker.selectedAssets lastObject];
-    NSString *string = [selectedAsset valueForKey:@"filename"];
-    NSLog(string);
+    [[PHImageManager defaultManager] requestImageDataForAsset:selectedAsset options:nil resultHandler:^(NSData *imageData, NSString *dataUTI, UIImageOrientation orientation, NSDictionary *info) {
+        capturedImageData = imageData;
+        fileName = [selectedAsset valueForKey:@"filename"];
+        NSLog(@"picked asset");
+        [self dismissViewControllerAnimated:YES completion:nil];
+        [self performSegueWithIdentifier:@"CameraToSelectBus" sender:self];
+    }];
 }
 
 @end

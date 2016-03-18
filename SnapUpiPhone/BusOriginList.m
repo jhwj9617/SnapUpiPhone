@@ -19,6 +19,10 @@
     [self.busOrigins insertObject:busOrigin atIndex:0];
 }
 
+- (void) deleteBusOrigin:(BusOrigin *) busOrigin {
+    [self.busOrigins removeObject:busOrigin];
+}
+
 -(void)encodeWithCoder:(NSCoder *)encoder{
     [encoder encodeObject:self.busOrigins forKey:@"busOrigins"];
 }
