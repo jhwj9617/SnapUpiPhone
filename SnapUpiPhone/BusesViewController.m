@@ -18,7 +18,6 @@
 @implementation BusesViewController
 BusOriginList * busOriginList;
 BusOrigin *selectedBusOrigin;
-BOOL shouldDeleteSelectedBusOrigin;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,10 +27,6 @@ BOOL shouldDeleteSelectedBusOrigin;
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    if (shouldDeleteSelectedBusOrigin) {
-        [self deleteSelectedBusOrigin];
-    }
-    shouldDeleteSelectedBusOrigin = false;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -91,7 +86,7 @@ BOOL shouldDeleteSelectedBusOrigin;
                                                            options:NSJSONReadingAllowFragments
                                                              error:&error];
                     
-                    if ([json objectForKey:@"statusCode"] && [[json objectForKey:@"statusCode"] isEqualToString:@"200"]) {
+                    if ([[json objectForKey:@"statusCode"] isEqualToString:@"200"]) {
                         BusOrigin *newBusOrigin = [[BusOrigin alloc] init];
                         newBusOrigin.name = busName;
                         newBusOrigin.code = [json objectForKey:@"code"];
@@ -140,7 +135,11 @@ BOOL shouldDeleteSelectedBusOrigin;
 - (IBAction)unwindFromModalViewController:(UIStoryboardSegue *)segue {
     if ([[segue identifier] isEqualToString:@"BusOriginPropertiesToBuses"]) {
         BusOriginPropertiesViewController *busOriginPropertiesVC = segue.sourceViewController;
-        shouldDeleteSelectedBusOrigin = busOriginPropertiesVC.didDelete;
+        if (busOriginPropertiesVC.didDelete) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self deleteSelectedBusOrigin];
+            });
+        }
     }
 }
 

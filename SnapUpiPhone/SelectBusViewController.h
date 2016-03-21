@@ -12,7 +12,7 @@
 #import "BusOriginList.h"
 #import "InterfaceUtilities.h"
 
-@interface SelectBusViewController : UIViewController <UITableViewDelegate> {
+@interface SelectBusViewController : UIViewController <UITableViewDelegate, NSURLSessionDataDelegate> {
     BusOriginList * busOriginList;
 }
 

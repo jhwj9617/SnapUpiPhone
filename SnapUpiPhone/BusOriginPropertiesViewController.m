@@ -50,7 +50,7 @@
                     json = [NSJSONSerialization JSONObjectWithData:data
                                                            options:NSJSONReadingAllowFragments
                                                              error:&error];
-                    if ([json objectForKey:@"statusCode"] && [[json objectForKey:@"statusCode"] isEqualToString:@"200"]) {
+                    if ([[json objectForKey:@"statusCode"] isEqualToString:@"200"]) {
                         self.didDelete = true;
                         [self performSegueWithIdentifier:@"BusOriginPropertiesToBuses" sender:self];
                     }

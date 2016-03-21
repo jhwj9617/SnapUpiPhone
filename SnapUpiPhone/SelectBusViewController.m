@@ -11,6 +11,7 @@
 @implementation SelectBusViewController
 
 BusOrigin *selectedBusOriginToUploadAsset;
+UIProgressView *progressView;
 
 - (void) viewDidLoad {
     [super viewDidLoad];
@@ -72,16 +73,6 @@ BusOrigin *selectedBusOriginToUploadAsset;
 }
 
 - (void) uploadAssetData {
-    UIViewController * contributeViewController = [[UIViewController alloc] init];
-    UIBlurEffect * blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-    UIVisualEffectView *beView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-    beView.frame = self.view.bounds;
-    contributeViewController.view.frame = self.view.bounds;
-    contributeViewController.view.backgroundColor = [UIColor clearColor];
-    [contributeViewController.view insertSubview:beView atIndex:0];
-    contributeViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    [self presentViewController:contributeViewController animated:YES completion:nil];
-    
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     // filetype jpg assumed
     NSString *urlString = [NSString stringWithFormat:@"%@%@%@%@",
@@ -100,32 +91,79 @@ BusOrigin *selectedBusOriginToUploadAsset;
                     json = [NSJSONSerialization JSONObjectWithData:data
                                                            options:NSJSONReadingAllowFragments
                                                              error:&error];
-                    
-                    if ([json objectForKey:@"statusCode"] && [[json objectForKey:@"statusCode"] isEqualToString:@"200"]) {
-                        NSString *putUrl = [[json objectForKey:@"putUrl"] stringByReplacingOccurrencesOfString:@"\\u0026" withString:@"&"]; // \u0026 must be decoded to &
-                        NSLog(@"%@", putUrl);
-                        
-                        NSMutableURLRequest *uploadRequest = [[NSMutableURLRequest alloc] init];
-                        [uploadRequest setURL:[NSURL URLWithString:putUrl]];
-                        uploadRequest.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
-                        [uploadRequest setHTTPMethod:@"PUT"];
-                        [uploadRequest setHTTPBody:self.assetDataToUpload];
-                        [uploadRequest setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[self.assetDataToUpload length]] forHTTPHeaderField:@"Content-Length"];
-                        [uploadRequest setValue:@"image/jpeg" forHTTPHeaderField:@"Content-Type"];
-                        NSURLSession *session = [NSURLSession sharedSession];
-                        NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:uploadRequest completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-                            NSLog(@"YAY COMPLETED");
-                            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
-                            if ([httpResponse statusCode] == 200) {
-                                [self confirmAssetUpload];
-                            } else {
-                                [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-                            }
-                        }];
-                        [dataTask resume];
+                    NSString *statusCode = [json objectForKey:@"statusCode"];
+                    NSString *statusMessage = [json objectForKey:@"statusMessage"];
+                    if ([statusCode isEqualToString:@"404"] ||
+                        [statusCode isEqualToString:@"410"] ||
+                        [statusCode isEqualToString:@"412"]) {
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            UIAlertController *httpErrorAlert = [InterfaceUtilities createAlertDialogWithTitle:statusCode Message:statusMessage];
+                            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                            [self presentViewController:httpErrorAlert animated:YES completion:nil];
+                            [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:YES];
+                        });
+                    } else if ([[json objectForKey:@"statusCode"] isEqualToString:@"200"]) {
+                        [self uploadToAmazonS3:[json objectForKey:@"putUrl"]];
                     }
                 }
             }] resume];
+}
+
+- (void) uploadToAmazonS3:(NSString *) putUrl {
+    // uploading screen
+    UIViewController * contributeViewController = [[UIViewController alloc] init];
+    UIBlurEffect * blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    UIVisualEffectView *beView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    beView.frame = self.view.bounds;
+    contributeViewController.view.frame = self.view.bounds;
+    contributeViewController.view.backgroundColor = [UIColor clearColor];
+    [contributeViewController.view insertSubview:beView atIndex:0];
+    contributeViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleBar];
+        progressView.frame = CGRectMake(0, 0, 200, 15);
+        progressView.center = beView.center;
+        progressView.progress = 0;
+        [beView.contentView addSubview:progressView];
+        [self presentViewController:contributeViewController animated:YES completion:nil];
+    });
+    
+
+    
+    
+    
+    NSString *decodedPutUrl = [putUrl stringByReplacingOccurrencesOfString:@"\\u0026" withString:@"&"]; // \u0026 must be decoded to &
+    
+    NSMutableURLRequest *uploadRequest = [[NSMutableURLRequest alloc] init];
+    [uploadRequest setURL:[NSURL URLWithString:decodedPutUrl]];
+    uploadRequest.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
+    [uploadRequest setHTTPMethod:@"PUT"];
+    [uploadRequest setHTTPBody:self.assetDataToUpload];
+    [uploadRequest setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[self.assetDataToUpload length]] forHTTPHeaderField:@"Content-Length"];
+    [uploadRequest setValue:@"image/jpeg" forHTTPHeaderField:@"Content-Type"];
+    NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:self delegateQueue:nil];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:uploadRequest completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSLog(@"YAY COMPLETED");
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+        if ([httpResponse statusCode] == 200) {
+            [self confirmAssetUpload];
+        } else {
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        }
+    }];
+    [dataTask resume];
+    
+}
+
+// implements NSURLSessionDataDelegate methods to set progressbar
+- (void) URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didSendBodyData:(int64_t)bytesSent totalBytesSent:(int64_t)totalBytesSent totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend {
+    float progress = (double)totalBytesSent / (double)totalBytesExpectedToSend;
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [progressView setProgress:progress];
+    });
 }
 
 - (void) confirmAssetUpload {
@@ -143,13 +181,19 @@ BusOrigin *selectedBusOriginToUploadAsset;
                     json = [NSJSONSerialization JSONObjectWithData:data
                                                            options:NSJSONReadingAllowFragments
                                                              error:&error];
-                    
-                    if ([json objectForKey:@"statusCode"] && [[json objectForKey:@"statusCode"] isEqualToString:@"200"]) {
+                    NSString *statusCode = [json objectForKey:@"statusCode"];
+                    NSString *statusMessage = [json objectForKey:@"statusMessage"];
+                    if ([statusCode isEqualToString:@"404"] ||
+                        [statusCode isEqualToString:@"410"] ||
+                        [statusCode isEqualToString:@"412"]) {
+                        UIAlertController *httpErrorAlert = [InterfaceUtilities createAlertDialogWithTitle:statusCode Message:statusMessage];
+                        [self presentViewController:httpErrorAlert animated:YES completion:nil];
+                    } else if ([statusCode isEqualToString:@"200"]) {
                         self.didUpload = true;
-                        [self dismissViewControllerAnimated:YES completion:nil];
                         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
                         [self performSegueWithIdentifier:@"SelectBusToCamera" sender:self];
                     }
+                    [self dismissViewControllerAnimated:YES completion:nil];
                 }
             }] resume];
 }
